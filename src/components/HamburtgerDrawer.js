@@ -11,10 +11,10 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import { createTheme,  ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import clsx from "clsx";
 import { makeStyles } from '@mui/styles';
-
+import categories from "../data/Category"
 
 const useStyles = makeStyles({
     list: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function HamburtgerDrawer() {
+export default function HamburtgerDrawer({ setCategory }) {
     const classes = useStyles()
     const [state, setState] = React.useState({
 
@@ -53,35 +53,26 @@ export default function HamburtgerDrawer() {
 
     const list = (anchor) => (
         <div
-        className={clsx(classes.list, {
-            [classes.fullList]: anchor === "top" || anchor === "Button",
-        })}
+            className={clsx(classes.list, {
+                [classes.fullList]: anchor === "top" || anchor === "Button",
+            })}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                <ListItem >Categories</ListItem>
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
+                {categories.map((text, index) => (
+                    <ListItem
+                        style={{ height: 40, borderRadius: 3 }}
+                        
+                        key={text}
+                        onClick={() => setCategory(text)}
+                    >
+                        <ListItemText primary={text} />
                     </ListItem>
                 ))}
             </List>

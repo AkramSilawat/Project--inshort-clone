@@ -1,12 +1,39 @@
 import './App.css';
-import Button from '@mui/material/Button'
 import NavInshorts from './components/NavInshorts';
-
+import { useEffect, useState } from 'react';
+import NewsContent from './components/NewsContent/NewsContent';
+import axios from 'axios';
+import apikey from './data/Config';
 
 function App() {
+  const [category, setcategory] = useState("general");
+  const [newsArray, setNewsArray] = useState([])
+  const [newsResults, setNewsResults] = useState()
+
+  const newsApi = async () => {
+    try {
+      const news = await axios.get(
+        `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}&category=${category}`
+      );
+      setNewsArray(news.data.articles);
+      setNewsResults(news.data.totalResults);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(newsArray)
+
+  useEffect(() => {
+    newsApi();
+  }, [newsResults, category]);
+
   return (
     <div className="App">
-      <NavInshorts />
+      <NavInshorts setcategory={setcategory} />
+
+      <NewsContent />
     </div>
   );
 }
