@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import NewsContent from './components/NewsContent/NewsContent';
 import axios from 'axios';
 import apikey from './data/Config';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [category, setcategory] = useState("general");
@@ -34,6 +35,8 @@ function App() {
       <NavInshorts setcategory={setcategory} />
 
       <NewsContent />
+
+      <Footer />
     </div>
   );
 }
