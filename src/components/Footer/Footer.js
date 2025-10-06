@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className='footer'>
         <span className='name'>
-            inshorts clone made bt -{" "}
+            inshorts clone made by -{" "}
             <a href='https://www.linkedin.com/in/piyush-eon' target='__blank'>
             Akram Silawat
             </a>

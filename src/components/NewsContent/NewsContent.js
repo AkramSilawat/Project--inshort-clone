@@ -1,8 +1,9 @@
 import { Container } from '@mui/material'
 import React from 'react'
 import "./NewsContent.css";
+import NewsCard from '../NewsCard/NewsCard';
 
-const NewsContent = () => {
+const NewsContent = ({ newsArray, newsResults }) => {
   return (
     <Container maxWidth="md">
       <div className='content'>
@@ -21,7 +22,8 @@ const NewsContent = () => {
             src="https://assets.inshorts.com/website_assets/images/playstore.png"
           />
         </div>
-        
+
+          <NewsCard />
       </div>
     </Container>
   )
