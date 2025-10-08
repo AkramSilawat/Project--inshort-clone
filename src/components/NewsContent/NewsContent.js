@@ -23,11 +23,9 @@ const NewsContent = ({ newsArray, newsResults }) => {
           />
         </div>
 
-         {newsArray.map((newsItem) => (
+        {newsArray.map((newsItem) => (
           <NewsCard newsItem={newsItem} key={newsItem.title} />
         ))}
-
-        
       </div>
     </Container>
   )
