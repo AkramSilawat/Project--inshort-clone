@@ -3,6 +3,12 @@ import "./NewsCard.css"
 
 const NewsCard = ({ newsItem }) => {
     console.log(newsItem)
+
+    const fulldate = new Date(newsItem.publishedAt);
+    var date = fulldate.toString().split(" ");
+    const hour = parseInt(date[4].substring(0, 2));
+    const time = hour > 12 ? true : false
+
     return <div className='newsCard'>
         <img
             alt={newsItem.title}
@@ -20,9 +26,12 @@ const NewsCard = ({ newsItem }) => {
                 <sapan className='author'>
                     <a herf={newsItem.url} target='__blank'>
                         <b>short</b>
-                    </a>
+                    </a>{" "}
                     <span className='muted'>
-                        by {newsItem.author ? newsItem.author : "unknown"}
+                        by {newsItem.author ? newsItem.author : "unknown"} / {" "}
+                        {time
+                            ? `${hour - 12}:${date[4].substring(3, 5)} pm`
+                            : `${hour}:${date[4].substring(3, 5)} am`} on {date[2]} {date[1]} {date[3]}, {date[0]}
                     </span>
                 </sapan>
             </div>
@@ -30,7 +39,7 @@ const NewsCard = ({ newsItem }) => {
                 <div className='description'>{newsItem.description}</div>
                 <span className='readmore'>
                     read more at {" "}
-                     <a herf={newsItem.url} target='__blank'>
+                    <a herf={newsItem.url} target='__blank'>
                         <b>{newsItem.source.name}</b>
                     </a>
                 </span>
