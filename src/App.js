@@ -10,6 +10,7 @@ function App() {
   const [category, setcategory] = useState("general");
   const [newsArray, setNewsArray] = useState([])
   const [newsResults, setNewsResults] = useState()
+  const [loadmore, setLoadmore] = useState(20)
 
   const newsApi = async () => {
     try {
@@ -34,7 +35,12 @@ function App() {
     <div className="App">
       <NavInshorts setcategory={setcategory} />
 
-      <NewsContent newsArray={newsArray} newsResults={newsResults} />
+      <NewsContent
+      setLoadmore={setLoadmore}
+        loadmore={loadmore}
+        newsArray={newsArray}
+        newsResults={newsResults}
+      />
 
       <Footer />
     </div>

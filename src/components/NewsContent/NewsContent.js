@@ -26,6 +26,9 @@ const NewsContent = ({ newsArray, newsResults }) => {
         {newsArray.map((newsItem) => (
           <NewsCard newsItem={newsItem} key={newsItem.title} />
         ))}
+
+        <hr />
+        <button className='loadMore'> Load More</button>
       </div>
     </Container>
   )
