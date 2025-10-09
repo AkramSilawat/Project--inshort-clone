@@ -13,9 +13,11 @@ function App() {
   const [loadmore, setLoadmore] = useState(20)
 
   const newsApi = async () => {
+
+        //  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     try {
       const news = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apikey}&category=${category}`
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
       );
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
@@ -29,14 +31,14 @@ function App() {
 
   useEffect(() => {
     newsApi();
-  }, [newsResults, category]);
+  }, [newsResults, category, loadmore]);
 
   return (
     <div className="App">
       <NavInshorts setcategory={setcategory} />
 
       <NewsContent
-      setLoadmore={setLoadmore}
+        setLoadmore={setLoadmore}
         loadmore={loadmore}
         newsArray={newsArray}
         newsResults={newsResults}

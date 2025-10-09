@@ -21,7 +21,7 @@ const NewsCard = ({ newsItem }) => {
         />
         <div className='newsText'>
             <div>
-                <span className='title'>{newsItem.title}</span>
+                <span className='titel'>{newsItem.title}</span>
                 <br />{" "}
                 <sapan className='author'>
                     <a herf={newsItem.url} target='__blank'>
