@@ -12,16 +12,15 @@ function App() {
   const [newsResults, setNewsResults] = useState()
   const [loadmore, setLoadmore] = useState(20)
 
+  
   const newsApi = async () => {
-
-        //  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     try {
+      // const proxyUrl = "https://cors-anywhere.herokuapp.com/";
       const news = await axios.get(
         `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apikey}&category=${category}&pageSize=${loadmore}`
       );
       setNewsArray(news.data.articles);
       setNewsResults(news.data.totalResults);
-
     } catch (error) {
       console.log(error);
     }

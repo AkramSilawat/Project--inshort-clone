@@ -36,7 +36,6 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setLoadmore }) => {
             </button>
           </>
         )}
-
       </div>
     </Container>
   )
