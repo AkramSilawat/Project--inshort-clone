@@ -30,7 +30,7 @@ const NewsContent = ({ newsArray, newsResults, loadmore, setLoadmore }) => {
         {loadmore <= newsResults && (
           <>
             <hr />
-            <button className='loadMore' onClick={() => setLoadmore(loadmore * 20)}
+            <button className='loadMore' onClick={() => setLoadmore(loadmore + 20)}
             >
               Load More
             </button>

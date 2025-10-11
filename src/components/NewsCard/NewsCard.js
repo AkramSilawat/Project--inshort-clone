@@ -2,7 +2,6 @@ import React from 'react'
 import "./NewsCard.css"
 
 const NewsCard = ({ newsItem }) => {
-    console.log(newsItem)
 
     const fulldate = new Date(newsItem.publishedAt);
     var date = fulldate.toString().split(" ");
@@ -23,7 +22,7 @@ const NewsCard = ({ newsItem }) => {
             <div>
                 <span className='titel'>{newsItem.title}</span>
                 <br />{" "}
-                <sapan className='author'>
+                <span className='author'>
                     <a herf={newsItem.url} target='__blank'>
                         <b>short</b>
                     </a>{" "}
@@ -33,7 +32,7 @@ const NewsCard = ({ newsItem }) => {
                             ? `${hour - 12}:${date[4].substring(3, 5)} pm`
                             : `${hour}:${date[4].substring(3, 5)} am`} on {date[2]} {date[1]} {date[3]}, {date[0]}
                     </span>
-                </sapan>
+                </span>
             </div>
             <div className='lowerNewsText'>
                 <div className='description'>{newsItem.description}</div>

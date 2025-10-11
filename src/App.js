@@ -3,7 +3,6 @@ import NavInshorts from './components/NavInshorts';
 import { useEffect, useState } from 'react';
 import NewsContent from './components/NewsContent/NewsContent';
 import axios from 'axios';
-import apikey from './data/Config';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -11,8 +10,6 @@ function App() {
   const [newsArray, setNewsArray] = useState([])
   const [newsResults, setNewsResults] = useState()
   const [loadmore, setLoadmore] = useState(20)
-
-  console.log(process.env)
 
   const newsApi = async () => {
     try {
@@ -27,11 +24,9 @@ function App() {
     }
   };
 
-  console.log(newsArray)
-
   useEffect(() => {
     newsApi();
-  }, [newsResults, category, loadmore]);
+  }, [newsResults, category, loadmore]); // dependency
 
   return (
     <div className="App">
