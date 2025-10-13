@@ -24,7 +24,6 @@ const useStyles = makeStyles({
     },
 });
 
-
 export default function HamburtgerDrawer({ setCategory }) {
     const classes = useStyles()
     const [state, setState] = React.useState({
@@ -44,7 +43,6 @@ export default function HamburtgerDrawer({ setCategory }) {
         ) {
             return;
         }
-
         setState({ ...state, [anchor]: open });
     };
 
@@ -65,7 +63,7 @@ export default function HamburtgerDrawer({ setCategory }) {
                 {categories.map((text, index) => (
                     <ListItem
                         style={{ height: 40, borderRadius: 3 }}
-                        
+
                         key={text}
                         onClick={() => setCategory(text)}
                     >
@@ -75,7 +73,6 @@ export default function HamburtgerDrawer({ setCategory }) {
             </List>
         </div>
     );
-
     return (
         <div>
             <React.Fragment key={"left"}>
@@ -94,6 +91,5 @@ export default function HamburtgerDrawer({ setCategory }) {
                 </ThemeProvider>
             </React.Fragment>
         </div>
-
     );
 }

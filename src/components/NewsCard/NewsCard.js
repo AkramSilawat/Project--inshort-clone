@@ -2,7 +2,6 @@ import React from 'react'
 import "./NewsCard.css"
 
 const NewsCard = ({ newsItem }) => {
-
     const fulldate = new Date(newsItem.publishedAt);
     var date = fulldate.toString().split(" ");
     const hour = parseInt(date[4].substring(0, 2));
@@ -18,6 +17,7 @@ const NewsCard = ({ newsItem }) => {
             }
             className='newsImage'
         />
+        
         <div className='newsText'>
             <div>
                 <span className='titel'>{newsItem.title}</span>
@@ -34,6 +34,7 @@ const NewsCard = ({ newsItem }) => {
                     </span>
                 </span>
             </div>
+
             <div className='lowerNewsText'>
                 <div className='description'>{newsItem.description}</div>
                 <span className='readmore'>
@@ -45,7 +46,6 @@ const NewsCard = ({ newsItem }) => {
             </div>
         </div>
     </div>
-
 }
 
 export default NewsCard
